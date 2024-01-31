@@ -2,6 +2,10 @@ package ie.tudublin;
 
 public class Dog extends Animal
 {
+<<<<<<< HEAD
+=======
+	
+>>>>>>> b9649c25ecbd0938c12f5f76e9423f26b767138b
 
 	// A constructor. Same name as the file. 
 	// No return value
@@ -14,6 +18,7 @@ public class Dog extends Animal
 	// A constructor that takes name
 	public Dog(String name)
 	{
+		this();
 		this.name = name;
 	}
 
