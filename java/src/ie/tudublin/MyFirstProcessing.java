@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package ie.tudublin;
 
 import processing.core.PApplet;
@@ -25,7 +24,6 @@ public class MyFirstProcessing extends PApplet
 
 	}
 }
-=======
 package ie.tudublin;
 
 import processing.core.PApplet;
@@ -57,4 +55,3 @@ public class MyFirstProcessing extends PApplet
 	
 	}
 }
->>>>>>> b9649c25ecbd0938c12f5f76e9423f26b767138b

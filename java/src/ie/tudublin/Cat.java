@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package ie.tudublin;
 
 public class Cat extends Animal{
@@ -12,7 +11,6 @@ public class Cat extends Animal{
         setName(name);
     }
 }
-=======
 package ie.tudublin;
 
 public class Cat extends Animal {
@@ -27,4 +25,3 @@ public class Cat extends Animal {
     }
     
 }
->>>>>>> b9649c25ecbd0938c12f5f76e9423f26b767138b
