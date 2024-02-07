@@ -8,8 +8,7 @@ public class Main
 	public void helloProcessing()
 	{
 		String[] a = {"MAIN"};
-        processing.core.PApplet.runSketch( a, new MyFirstProcessing());
-        processing.core.PApplet.runSketch( a, new BugZap());
+        processing.core.PApplet.runSketch( a, new MultiSensoryFoLoopExperience());
     }
 
 	public void doDogStuff()
@@ -54,8 +53,6 @@ public class Main
 		larry.speak();
 
 		Animal a = new Dog("A");
-		Animal p = new Dog("B");
-		Animal b = new Dog("B");
 		Animal c = a;
 		a.setName("G");
 
