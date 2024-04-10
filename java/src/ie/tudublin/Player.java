@@ -2,33 +2,11 @@ package ie.tudublin;
 
 import processing.core.PVector;
 
-public class Player {
-    private PVector pos;
-    private float rotation;
-    private int col;
+public class Player extends GameObject {
     private float width;
     private float halfW;
 
-    YASC yasc;
-
-    public PVector getPos() {
-        return pos;
-    }
-    public void setPos(PVector pos) {
-        this.pos = pos;
-    }
-    public float getRotation() {
-        return rotation;
-    }
-    public void setRotation(float rotation) {
-        this.rotation = rotation;
-    }
-    public int getCol() {
-        return col;
-    }
-    public void setCol(int col) {
-        this.col = col;
-    }
+    
     public float getWidth() {
         return width;
     }
@@ -42,23 +20,28 @@ public class Player {
         this.halfW = halfW;
     }
 
+
+
+
     public Player(YASC yasc, float x, float y, float rotation, int col, float width) {
-        this.yasc = yasc;
-        this.pos = new PVector(x, y);
-        this.rotation = rotation;
-        this.col = col;
+        super(yasc, x, y, rotation, col);
         this.width = width;
         this.halfW = width * 0.5f;
+        forward = new PVector(0, -1);
     }    
+
 
     public void render()
     {
+
+        forward.x = yasc.sin(rotation);
+        forward.y = - yasc.cos(rotation);
         if (yasc.keyPressed)
         {
             
             if (yasc.keyCode == yasc.LEFT)
             {
-                rotation -= 0.1f;
+                this.rotation -= 0.1f;
             }
 
             if (yasc.keyCode == yasc.RIGHT)
@@ -68,7 +51,8 @@ public class Player {
 
             if (yasc.keyCode == yasc.UP)
             {
-                pos.y = pos.y - 1;
+                pos.x = pos.x + forward.x * speed;
+                pos.y = pos.y + forward.y * speed;
             }
 
             if (yasc.keyCode == yasc.DOWN)
@@ -76,9 +60,18 @@ public class Player {
                 pos.y = pos.y + 1;
             }
 
+            if (yasc.key == ' ')
+            {
+
+                Bullet b = new Bullet(yasc, pos.x, pos.y, rotation, col);
+                yasc.gameObjects.add(b);
+
+            }
+
             
         }
         // yasc.circle(pos.x, pos.y, width);
+        yasc.pushMatrix();
         yasc.stroke(255);
         yasc.translate(pos.x, pos.y);
         yasc.rotate(rotation);        
@@ -86,6 +79,7 @@ public class Player {
         yasc.line(0, - halfW, halfW, halfW);
         yasc.line(halfW, halfW, 0, 0);
         yasc.line(0, 0, - halfW, halfW);
+        yasc.popMatrix();
            
     }
     
